@@ -5,13 +5,16 @@ mkfifo $temp
 echo "$$ $temp" > .tsolock
 echo "PID is $$"
 echo "FIFO is $temp"
-echo "Beginning new address space..."
-SERVLETKEY=$(zowe tso start as --sko)
-echo "Key is $SERVLETKEY"
 stuff="time"
 
+tso_as() {
+	echo "Beginning new address space..."
+	SERVLETKEY=$(zowe tso start as --sko)
+	echo "Key is $SERVLETKEY"
+}
+
 tso_command() {
-	zowe tso send as $SERVLETKEY --data $stuff || SERVLETKEY=$(zowe tso start as --sko)
+	zowe tso send as $SERVLETKEY --data $stuff || tso_as
 }
 
 prompt() {
@@ -37,5 +40,6 @@ cleanup() {
 
 trap cleanup INT
 
-prompt
+tso_as
 
+prompt

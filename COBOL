@@ -1,0 +1,18 @@
+       IDENTIFICATION DIVISION.
+      *
+       PROGRAM-ID.    GUESS.
+       AUTHOR.        STUDENT.
+
+       ENVIRONMENT DIVISION.
+      *
+       DATA DIVISION.
+      *
+       WORKING-STORAGE SECTION.
+       01 HELLO PIC X(10).
+
+       PROCEDURE DIVISION.
+      *
+           DISPLAY "Hello from TSO! I am a COBOL program, who are you?"
+           ACCEPT HELLO
+           DISPLAY "Hello, " HELLO ", and goodbye."
+           STOP RUN.
