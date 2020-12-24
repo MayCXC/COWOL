@@ -1,0 +1,23 @@
+---
+  - hosts: mtm
+    gather_facts: no
+    environment:
+      "{{ default_environment }}"
+
+    collections:
+      - ibm.ibm_zos_core
+
+    tasks:
+      - local_action: replace dest={{ cowol_jcl }} regexp="\r"
+
+      - name: Submit JCL as batch process
+        zos_job_submit:
+          src: "{{ cowol_jcl }}"
+          location: LOCAL
+          wait: true
+          return_output: true
+        register: job_detail
+
+      - name: Results
+        debug:
+          msg: "{{ job_detail.jobs | map(attribute='ddnames') | flatten | map(attribute='content') }}"

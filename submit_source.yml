@@ -1,0 +1,16 @@
+---
+  - hosts: mtm
+    gather_facts: no
+    environment:
+      "{{ default_environment }}"
+        
+    collections:
+      - ibm.ibm_zos_core
+
+    tasks:
+      - local_action: replace dest={{ cowol_src }} regexp="\r"
+
+      - name: Copy source to MVS
+        zos_copy:
+            src: "{{ cowol_src }}"
+            dest: "{{ ansible_user }}.SOURCE({{ cowol_dest }})"

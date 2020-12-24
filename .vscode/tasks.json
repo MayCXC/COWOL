@@ -1,0 +1,29 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run COBOL with default JCL",
+            "type": "shell",
+            "command": "./cowol/submit.sh ${relativeFile}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run COBOL with custom JCL",
+            "type": "shell",
+            "command": "./cowol/submit.sh ${relativeFile} ${input:jclName}",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "jclName",
+            "description": "Path to custom JCL",
+            "default": "${fileBasenameNoExtension}.jcl"
+        }      
+    ]
+}
