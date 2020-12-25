@@ -1,6 +1,6 @@
 # COWOL
 ### CObol WithOut Leave
-Are you tired of editing COBOL programs in Zowe explorer, just to accidentally submit your member as a batch job? Last time that happened I smashed my keyboard so hard that this repository typed itself out.
+Are you tired of editing COBOL programs in Zowe explorer, just to accidentally submit your member as a batch job? Last time that happened to me I smashed my keyboard so hard that this repository typed itself out.
 
 ## DEPENDENCIES
 VSCode with Zowe explorer, docker with `masterthemainframe/ansible:latest`, a terminal with any POSIX compliant shell, and Zowe CLI.
