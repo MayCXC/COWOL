@@ -4,17 +4,42 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Start interactive TSO address space",
+            "type": "shell",
+            "command": "./cowol/tsoterm.sh",
+            "presentation": {
+                "panel": "dedicated",
+                "group": "TSO"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run COBOL with default TSO commands",
+            "type": "shell",
+            "command": "./cowol/tsocobol.sh ${input:loadName}",
+            "presentation": {
+                "group": "TSO"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "Run COBOL with default JCL",
             "type": "shell",
-            "command": "./cowol/submit.sh ${relativeFile}",
+            "command": "./cowol/jclcobol.sh ${relativeFile}",
             "group": "build",
             "problemMatcher": []
         },
         {
             "label": "Run COBOL with custom JCL",
             "type": "shell",
-            "command": "./cowol/submit.sh ${relativeFile} ${input:jclName}",
+            "command": "./cowol/jclcobol.sh ${relativeFile} ${input:jclName}",
             "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run COBOL with interactive TSO AS",
+            "type": "shell",
+            "dependsOn": ["Start interactive TSO address space", "Run COBOL with default TSO commands"],
             "problemMatcher": []
         }
     ],
@@ -24,6 +49,11 @@
             "id": "jclName",
             "description": "Path to custom JCL",
             "default": "${fileBasenameNoExtension}.jcl"
-        }      
+        },
+        {
+            "type": "promptString",
+            "id": "loadName",
+            "description": "Member name of load module"
+        }
     ]
 }
