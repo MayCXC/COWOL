@@ -23,4 +23,4 @@ Now you can run fizzbuzz.cob by. This will work for any COBOL program with the p
 ### zosname.sh
 
 ## ENDGAME
-All the functionalities of this project would be better off as additions to the Zowe explorer plugin, instead of as a VSCode profile. So, useful would Zowe explorer pull request. That being said, this approach demonstrates that achieved with the vanilla IDE, which could be useful in circumstances where developers are using inconsistent working environments. Thanks for your consideration.
+All the functionalities of this project would be better off as additions to the Zowe explorer plugin, instead of as a VSCode profile. So, useful would Zowe explorer pull request. That being said, this approach demonstrates that achieved with the vanilla IDE, which could be useful in circumstances where developers are using inconsistent working environments. Thank you for your consideration.
