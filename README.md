@@ -10,11 +10,20 @@ All of the build tasks that use TSO also share the same terminal and the same pr
 Docker with `masterthemainframe/ansible:latest`, VSCode with Zowe explorer, and a terminal with Zowe CLI and any superset of the Bourne shell.
 
 ## INSTALLATION
-Start by cloning this repository and copying its contents into the `masterthemainframe/ansible` container from ANSB2:
+Start by [clicking here](https://github.com/mayhd3/COWOL/archive/main.zip) to download the COWOL VSCode workspace. Extract it and copy its contents into the `masterthemainframe/ansible` container from ANSB2:
+
+```
+unzip COWOL-main.zip
+
+```
 
 Alternatively, copy the project structure from `masterthemainframe/ansible` into this repository in an environment that can run the playbooks:
 
-Finally, open the repository in VSCode.
+```
+
+```
+
+Finally, open the workspace in VSCode, either by attaching to the `masterthemainframe/ansible` container, or by opening the folder you copied the ansible project to.
 
 ## INSTRUCTIONS
 You can run `source/fizzbuzz.cob` by pressing **ctrl + shift + B** and selecting **Run COBOL with default JCL**.
@@ -29,4 +38,4 @@ Finally, you can run `source/ping.rexx` with the **Run REXX with interactive TSO
 
 
 ## ENDGAME
-All the functionalities of this project would be better off as additions to the Zowe explorer plugin, instead of as a VSCode profile. So, useful would Zowe explorer pull request. That being said, this approach demonstrates that achieved with the vanilla IDE, which could be useful in circumstances where developers are using inconsistent working environments. Thank you for your consideration.
+All the functionalities of this project would be better off as additions to the Zowe explorer plugin, instead of as a VSCode workspace. So, useful would Zowe explorer pull request. That being said, this approach demonstrates that achieved with the vanilla IDE, which could be useful in circumstances where developers are using inconsistent working environments. Thank you for your consideration.
