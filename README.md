@@ -1,6 +1,6 @@
 # COWOL
 ### CObol WithOut Leave
-Are you tired of editing COBOL programs in Zowe explorer, just to accidentally submit your source member as a batch job? Last time that happened to me I smashed my keyboard so hard that this repository typed itself out.
+Are you tired of editing COBOL programs in Zowe explorer, just to accidentally submit your source member as a batch job? Last time that happened to me, I smashed my keyboard so hard that this repository typed itself out.
 
 **COWOL** builds and tests Enterprise COBOL right from VSCode. You can open a COBOL program in your VSCode workspace, and press **ctrl + shift + B** to see several different build tasks. All of them use the **ibm_zos_core** ansible collection to copy your program to **&SYSUID.SOURCE** and compile it with **IGYWCL**, either using a minimal default JCL, or a custom JCL from your VSCode workspace. You then have the option to run the load module with **JES** and retrieve its output in a terminal, or to start an interactive TSO address space and run it with **SYSIN** and **SYSOUT** allocated to a terminal. You can also use the TSO terminal to debug your load module with the **TEST** command, and for completeness there is a build task to copy and run a REXX exec in it.
 
