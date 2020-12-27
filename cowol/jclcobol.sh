@@ -3,7 +3,10 @@
 . "$(dirname $0)/submit.sh"
 
 JCLNAME=$(mktemp)
-if [ ! -z "$2" ]
+if [ ! -t 0 ]
+then
+envsubst >> $JCLNAME
+elif [ ! -z "$2" ]
 then
 cat "$(dirname $SRCNAME)/$2" >> $JCLNAME
 else
@@ -14,10 +17,10 @@ cat >> $JCLNAME << EOF
 //LKED.SYSLMOD DD DSN=&SYSUID..LOAD($DESTNAME),DISP=SHR
 // IF RC = 0 THEN
 //COWOLRUN EXEC PGM=$DESTNAME
-//STEPLIB    DD DSN=&SYSUID..LOAD,DISP=SHR
-//SYSOUT     DD SYSOUT=*
-//CEEDUMP    DD DUMMY
-//SYSUDUMP   DD DUMMY
+//STEPLIB  DD DSN=&SYSUID..LOAD,DISP=SHR
+//SYSOUT   DD SYSOUT=*
+//CEEDUMP  DD DUMMY
+//SYSUDUMP DD DUMMY
 // ELSE
 // ENDIF
 EOF

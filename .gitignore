@@ -1,3 +1,4 @@
 ansible_collections/
 group_vars/
 inventory/
+cowol/.tsolock

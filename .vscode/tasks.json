@@ -16,7 +16,7 @@
         {
             "label": "Run COBOL with default TSO commands",
             "type": "shell",
-            "command": "./cowol/tsocobol.sh ${input:loadName}",
+            "command": "./cowol/tsocobol.sh ${relativeFile}",
             "presentation": {
                 "group": "TSO"
             },
@@ -49,11 +49,6 @@
             "id": "jclName",
             "description": "Path to custom JCL",
             "default": "${fileBasenameNoExtension}.jcl"
-        },
-        {
-            "type": "promptString",
-            "id": "loadName",
-            "description": "Member name of load module"
         }
     ]
 }

@@ -24,7 +24,7 @@ tso_as() {
 }
 
 tso_command() {
-	if ! zowe tso send as $SERVLETKEY --data "$stuff"
+	if [ ! -z "$stuff" ] && ! zowe tso send as $SERVLETKEY --data "$stuff"
 	then
 		tso_as
 		zowe tso send as $SERVLETKEY --data "$stuff"
