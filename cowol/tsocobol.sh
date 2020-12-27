@@ -13,5 +13,4 @@ free f(sysin,sysout)
 alloc f(sysin) da(*)
 alloc f(sysout) da(*)
 call ($DESTNAME)
-free f(sysin,sysout)
 EOF

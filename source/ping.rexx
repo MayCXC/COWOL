@@ -1,6 +1,6 @@
 /* REXX */
 say "Say ping:"
-do while (2>1)
+do while(1)
     pull said
     if (said="PING") then
     do
