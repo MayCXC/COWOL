@@ -23,6 +23,15 @@
             "problemMatcher": []
         },
         {
+            "label": "Run REXX with default TSO commands",
+            "type": "shell",
+            "command": "./cowol/tsorexx.sh ${relativeFile}",
+            "presentation": {
+                "group": "TSO"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "Run COBOL with default JCL",
             "type": "shell",
             "command": "./cowol/jclcobol.sh ${relativeFile}",
@@ -39,7 +48,21 @@
         {
             "label": "Run COBOL with interactive TSO AS",
             "type": "shell",
-            "dependsOn": ["Start interactive TSO address space", "Run COBOL with default TSO commands"],
+            "dependsOn": [
+                "Start interactive TSO address space",
+                "Run COBOL with default TSO commands"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run REXX with interactive TSO AS",
+            "type": "shell",
+            "dependsOn": [
+                "Start interactive TSO address space",
+                "Run REXX with default TSO commands"
+            ],
+            "group": "build",
             "problemMatcher": []
         }
     ],
