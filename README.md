@@ -49,7 +49,7 @@ Finally, you can run `source/topaccts.cbl` with the custom JCL build task. This 
 ```
 cowol
 ├── jclcobol.sh: runs a given or default JCL for a COBOL program using submit.sh and submit_jcl.yml
-├── submit.sh: copies a source member to the SOURCE dataset using submit_source.yml without return carriages
+├── submit.sh: copies a source member to the SOURCE dataset using submit_source.yml
 ├── tsocobol.sh: compiles a COBOL program using jclcobol.sh, and runs it interactively using tsoterm.sh
 ├── tsorexx.sh: runs a REXX program using submit.sh and tsoterm.sh
 └── tsoterm.sh: starts an interactive TSO session, acting as a server for STDIN and a temporary named pipe
@@ -63,7 +63,7 @@ source
 ├── topaccts.cob: program from the CBL1 challenge
 └── topaccts.jcl: jcl to compile and run topaccts.cob
 submit_jcl.yml: runs a batch process for a given JCL and retrieves ddname contents
-submit_source.yml: copies a given file to the SOURCE dataset, converting its file name to a member name
+submit_source.yml: copies a given file to the SOURCE dataset, truncating its name and return carriages
 ```
 ## ENDGAME
 COWOL successfully took all the clicking out of COBOL development, but this project would be better off as an addition to the Zowe explorer plugin using a [Task Provider](https://code.visualstudio.com/api/extension-guides/task-provider), instead of just `tasks.json` entries. This would have the advantages of smarter task selection for different file extensions, and avoiding depending on `sh`, signals, pipes, and common albeit non-portable utilities like `tail` and `grep`. So, this would eventually be realized as a Zowe explorer pull request. That being said, this approach demonstrates what can be achieved with vanilla VScode, which could be useful in circumstances where developers are using inconsistent working environments. Finally, I want to say that this competition was a great learning experience, and thank you for your consideration.
