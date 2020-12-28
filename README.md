@@ -43,13 +43,21 @@ Finally, you can run `source/ping.rexx` with the **Run REXX with interactive TSO
 ## DESCRIPTIONS
 
 ```
-submit_jcl.yml: runs a batch process for a given JCL and retrieves ddname contents
-submit_source.yml copies a given file to the SOURCE dataset, converting at most eight characters before its extension to an uppercase member name
-|- jclcobol.sh: runs a given or default JCL for a COBOL program using submit.sh and submit_jcl.yml
-|- submit.sh: copies a source member to the SOURCE dataset using submit_source.yml
-|- tsocobol.sh: compiles a COBOL program using jclcobol.sh, and runs it interactively using tsoterm.sh
-|- tsorexx.sh: runs a REXX program using submit.sh and tsoterm.sh
-|- tsoterm.sh: starts an interactive TSO session, acting as a server for STDIN and a temporary named pipe.
+├── cowol
+│   ├── jclcobol.sh: runs a given or default JCL for a COBOL program using submit.sh and submit_jcl.yml
+│   ├── submit.sh: copies a source member to the SOURCE dataset using submit_source.yml
+│   ├── tsocobol.sh: compiles a COBOL program using jclcobol.sh, and runs it interactively using tsoterm.sh
+│   ├── tsorexx.sh: runs a REXX program using submit.sh and tsoterm.sh
+│   └── tsoterm.sh: starts an interactive TSO session, acting as a server for STDIN and a temporary named pipe
+├── source
+│   ├── fizzbuzz.cob: just the classic fizzbuzz, one through one hundred
+│   ├── hellocbl.cob: bootleg of a similar program from REXX1
+│   ├── hellocbl.jcl: custom jcl with an input file dd statement
+│   ├── hellotso.cob: hello world with an ACCEPT statement
+│   ├── hellotso.jcl: compiles and runs hellotso with an in-stream input file
+│   └── ping.rexx: GOTY 2020
+├── submit_jcl.yml: runs a batch process for a given JCL and retrieves ddname contents
+└── submit_source.yml: copies a given file to the SOURCE dataset, converting at most eight characters before its extension to an uppercase member name
 ```
 ## ENDGAME
 All the functionalities of this project would be better off as additions to the Zowe explorer plugin using a [Task Provider](https://code.visualstudio.com/api/extension-guides/task-provider), instead of just `tasks.json` entries. This would have the advantages of smarter task selection for different file extensions, avoiding depending on `sh`, signals, pipes, and common albeit non-portable utilities like `tail` and `grep`. So this would eventually be realized as a Zowe explorer pull request, but zOS is very proprietary software, and an open source contribution would still be inappropriate. That being said, this approach demonstrates what can be achieved with vanilla VScode, which could be useful in circumstances where developers are using very inconsistent working environments. Finally, I want to say that this competition was a great learning experience, and thank you for your consideration.
