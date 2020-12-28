@@ -7,7 +7,9 @@ Are you tired of editing COBOL programs in Zowe explorer, just to accidentally s
 All of the build tasks that use TSO also share the same terminal and the same presentation group, so they only need to run one TSO address space at a time, and you never need to click the terminal dropdown. You can also just use `cowol/tsoterm.sh` as a standalone TSO terminal, by pressing **ctrl + shift + P** and selecting **Tasks: Run Task > Start interactive TSO address space** in the command pallette. It will read TSO input from STDIN until you kill it with SIGUSR1, then it will read TSO input from a temporary FIFO that other programs can pipe into. The PID and FIFO path are both stored in `cowol/.tsolock`, which additional instances will redirect their input to, so that TSO commands only ever run on one terminal. Pressing **ctrl + C** will make `tsoterm.sh` clean up the lock, fifo, and address space, and exit.
 
 ## REQUIREMENTS
-Docker with `masterthemainframe/ansible:latest`, VSCode with Zowe explorer, and a terminal with Zowe CLI and any superset of the Bourne shell.
+- Docker with `masterthemainframe/ansible:latest`
+- VSCode with Zowe explorer and a zOSMF profile
+- a terminal with Zowe CLI and any superset of the Bourne shell.
 
 ## INSTALLATION
 Start by [clicking here](https://github.com/mayhd3/COWOL/archive/main.zip) to download the COWOL VSCode workspace. Extract it and copy its contents into the `masterthemainframe/ansible` container from ANSB1, `suspicious_noyce` was the name of mine:
