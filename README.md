@@ -10,20 +10,26 @@ All of the build tasks that use TSO also share the same terminal and the same pr
 Docker with `masterthemainframe/ansible:latest`, VSCode with Zowe explorer, and a terminal with Zowe CLI and any superset of the Bourne shell.
 
 ## INSTALLATION
-Start by [clicking here](https://github.com/mayhd3/COWOL/archive/main.zip) to download the COWOL VSCode workspace. Extract it and copy its contents into the `masterthemainframe/ansible` container from ANSB2:
+Start by [clicking here](https://github.com/mayhd3/COWOL/archive/main.zip) to download the COWOL VSCode workspace. Extract it and copy its contents into the `masterthemainframe/ansible` container from ANSB2, `suspicious_noyce` was the name of my container:
 
 ```
 unzip COWOL-main.zip
-
+docker cp COWOL-main suspicious_noyce:/root/
+exec -it suspicious_noyce sh
+cp COWOL-main/* .
 ```
 
 Alternatively, copy the project structure from `masterthemainframe/ansible` into this repository in an environment that can run the playbooks:
 
 ```
-
+unzip COWOL-main.zip
+cd COWOL-main
+docker cp suspicious_noyce:/root/group_vars .
+docker cp suspicious_noyce:/root/inventory .
+docker cp suspicious_noyce:/root/.ansible/collections/ansible_collections/ .
 ```
 
-Finally, open the workspace in VSCode, either by attaching to the `masterthemainframe/ansible` container, or by opening the folder you copied the ansible project to.
+Finally, open the workspace in VSCode, either by attaching to the container, or by opening the folder you copied the ansible project into.
 
 ## INSTRUCTIONS
 You can run `source/fizzbuzz.cob` by pressing **ctrl + shift + B** and selecting **Run COBOL with default JCL**.
@@ -36,6 +42,15 @@ Finally, you can run `source/ping.rexx` with the **Run REXX with interactive TSO
 
 ## DESCRIPTIONS
 
-
+```
+submit_jcl.yml: runs a batch process for a given JCL and retrieves ddname contents
+submit_source.yml copies a given file to a SOURCE member, converting at most eight characters before its extension to an uppercase member name
+cowol
+|- jclcobol.sh: runs a given or default JCL for a COBOL program using submit.sh and submit_jcl.yml
+|- submit.sh: copies a source member to the &SYSUID..SOURCE dataset using submit_source.yml
+|- tsocobol.sh: compiles a COBOL program using jclcobol.sh and runs it interactively using tsoterm.sh
+|- tsorexx.sh: runs a REXX program using submit.sh and tsoterm.sh
+|- tsoterm.sh: starts an interactive TSO session, acting as a server for STDIN and a temporary named pipe.
+```
 ## ENDGAME
-All the functionalities of this project would be better off as additions to the Zowe explorer plugin, instead of as a VSCode workspace. So, useful would Zowe explorer pull request. That being said, this approach demonstrates that achieved with the vanilla IDE, which could be useful in circumstances where developers are using inconsistent working environments. Thank you for your consideration.
+All the functionalities of this project would be better off as additions to the Zowe explorer plugin using a [Task Provider](https://code.visualstudio.com/api/extension-guides/task-provider), instead of just `tasks.json` entries. This would have the advantages of smarter task selection for different file extensions, avoiding depending on `sh`, signals, pipes, and common utilities like `tail` and `grep`. This would eventually be best realized as a Zowe explorer pull request. That being said, this approach demonstrates that achieved with vanilla VScode, which could be useful in circumstances where developers are using inconsistent working environments. zOS is also very proprietary software, so open source contribution would still be inappropriate. This competition was a great learning experience, thank you for your consideration.
