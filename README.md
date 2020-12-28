@@ -49,7 +49,7 @@ Finally, you can run `source/topaccts.cbl` with the custom JCL build task. This 
 ```
 cowol
 ├── jclcobol.sh: runs a given or default JCL for a COBOL program using submit.sh and submit_jcl.yml
-├── submit.sh: copies a source member to the SOURCE dataset using submit_source.yml, removes return carriages
+├── submit.sh: copies a source member to the SOURCE dataset using submit_source.yml without return carriages
 ├── tsocobol.sh: compiles a COBOL program using jclcobol.sh, and runs it interactively using tsoterm.sh
 ├── tsorexx.sh: runs a REXX program using submit.sh and tsoterm.sh
 └── tsoterm.sh: starts an interactive TSO session, acting as a server for STDIN and a temporary named pipe
