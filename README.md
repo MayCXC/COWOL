@@ -44,11 +44,10 @@ Finally, you can run `source/ping.rexx` with the **Run REXX with interactive TSO
 
 ```
 submit_jcl.yml: runs a batch process for a given JCL and retrieves ddname contents
-submit_source.yml copies a given file to a SOURCE member, converting at most eight characters before its extension to an uppercase member name
-cowol
+submit_source.yml copies a given file to the SOURCE dataset, converting at most eight characters before its extension to an uppercase member name
 |- jclcobol.sh: runs a given or default JCL for a COBOL program using submit.sh and submit_jcl.yml
-|- submit.sh: copies a source member to the &SYSUID..SOURCE dataset using submit_source.yml
-|- tsocobol.sh: compiles a COBOL program using jclcobol.sh and runs it interactively using tsoterm.sh
+|- submit.sh: copies a source member to the SOURCE dataset using submit_source.yml
+|- tsocobol.sh: compiles a COBOL program using jclcobol.sh, and runs it interactively using tsoterm.sh
 |- tsorexx.sh: runs a REXX program using submit.sh and tsoterm.sh
 |- tsoterm.sh: starts an interactive TSO session, acting as a server for STDIN and a temporary named pipe.
 ```
