@@ -40,7 +40,9 @@ You can also run `source/hellocbl.cob` with the **Run COBOL with custom JCL** bu
 
 You can also run `source/hellotso.cob` with the **Run COBOL with interactive TSO AS** build task, or with the custom JCL build task, to see examples of both interactive and in-stream SYSIN.
 
-Finally, you can run `source/ping.rexx` with the **Run REXX with interactive TSO AS** build task, and it will either reuse the same TSO terminal if you left it open, or open a new one if you closed it.
+You can also run `source/ping.rexx` with the **Run REXX with interactive TSO AS** build task, and it will either reuse the same TSO terminal if you left it open, or open a new one if you closed it.
+
+Finally, you can run `source/topaccts.cbl` with the custom JCL build task. This is the program from CBL1, included just so that I can get COBOL to show up in my pinned repos.
 
 ## DESCRIPTIONS
 
