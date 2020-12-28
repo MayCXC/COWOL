@@ -57,7 +57,9 @@ source
 ├── hellocbl.jcl: custom jcl with an input file dd statement
 ├── hellotso.cob: hello world with an ACCEPT statement
 ├── hellotso.jcl: compiles and runs hellotso with an in-stream input file
-└── ping.rexx: GOTY 2020
+├── ping.rexx: GOTY 2020
+├── topaccts.cob: program from the CBL1 challenge
+└── topaccts.jcl: jcl to compile and run topaccts.cob
 submit_jcl.yml: runs a batch process for a given JCL and retrieves ddname contents
 submit_source.yml: copies a given file to the SOURCE dataset, converting its file name to a member name
 ```
