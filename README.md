@@ -1,4 +1,7 @@
 # COWOL
+
+https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/meredith-stowell1/2021/03/31/announcing-the-2020-master-the-mainframe-winners
+
 ### CObol WithOut Leave
 Are you tired of editing COBOL programs in Zowe explorer, just to accidentally submit your source member as a batch job? Last time that happened to me, I smashed my keyboard so hard that this repository typed itself out.
 
