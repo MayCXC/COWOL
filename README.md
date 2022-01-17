@@ -15,7 +15,7 @@ All of the build tasks that use TSO also share the same terminal and the same pr
 - a terminal with Zowe CLI and any superset of the Bourne shell
 
 ## INSTALLATION:
-Start by [clicking here](https://github.com/mayhd3/COWOL/archive/main.zip) to download the COWOL VSCode workspace. Extract it and copy its contents into the `masterthemainframe/ansible` container from ANSB1, `suspicious_noyce` was the name of mine:
+Start by [clicking here](https://github.com/MayCXC/COWOL/archive/main.zip) to download the COWOL VSCode workspace. Extract it and copy its contents into the `masterthemainframe/ansible` container from ANSB1, `suspicious_noyce` was the name of mine:
 
 ```
 unzip COWOL-main.zip
