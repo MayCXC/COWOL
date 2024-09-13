@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. $(dirname $0)/jclcobol.sh << 'EOF'
+. "$(dirname $0)/jclcobol.sh" << 'EOF'
 //COWOLJCL    JOB 1,NOTIFY=&SYSUID
 //COWOLIGY   EXEC IGYWCL
 //COBOL.SYSIN  DD DSN=&SYSUID..SOURCE($DESTNAME),DISP=SHR
